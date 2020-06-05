@@ -1,0 +1,242 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: //"Ubuntu", 
+                 "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 400;
+    margin-top: 36px;
+}
+
+h1 > code, h2 > code, h3 > code, h4 > code {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+a {
+    color: $green;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($green, 12%);
+    }
+}
+
+header {
+    background: $green;
+    height: $header;
+    color: white;
+
+    margin: 0;
+    padding: 12px 0 0 0;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        display: inline-block;
+
+        &:hover {
+            color: darken(white, 12%);
+        }
+
+        &.title:hover {
+            color: inherit
+        }
+    }
+}
+
+.split {
+    display: grid;
+    grid: auto auto;
+    grid-template-areas: "left right";
+
+    .title {
+        grid-area: left;
+    }
+    .links {
+        grid-area: right;
+        text-align: right;
+    };
+}
+
+div.center-content {
+    max-width: $width;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .title {
+        white-space: nowrap;
+        .logo {
+            width: 64px;
+            height: 64px;
+            vertical-align: -47%;
+        }
+
+        h1 {
+            margin-top: 16px;
+        }
+
+        
+    }
+
+    .links {
+        margin-top: 42px;
+
+        text-align: right;
+        font-weight: 300;
+        font-size: 1.25rem;
+
+        height: 64px;
+
+        a {
+            display: inline-block;
+            padding: 0 18px;
+        }
+    }
+}
+
+section {
+    padding: 64px 0;
+}
+
+p {
+    font-size: 14pt;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.b {
+    font-weight: 400;
+}
+
+.green {
+    background: $green;
+    color: white;
+
+    a {
+        color: white;
+        &:hover {
+            color: darken(white, 12%)
+        }
+    }
+
+    &.index-green {
+        padding-bottom: 0;
+    }
+}
+
+.grey {
+    background: $grey;
+    color: white;
+
+    a {
+        color: white;
+        &:hover {
+            color: darken(white, 12%)
+        }
+    }
+}
+
+h1.big {
+    font-size: 3rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.desc {
+    margin-bottom: 0;
+}
+
+.hljs {
+    font-family: Roboto Mono, monospace;
+}
+
+.code-compare {
+    display: grid;
+    width: 100%;
+
+    position: relative;
+    bottom: -100px;
+
+    grid-template-columns: 7fr 1fr 7fr;
+    grid-template-areas: "left mid right";
+    justify-items: center;
+
+    .arrow {
+        grid-area: "mid";
+        
+        user-select: none;
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            padding-top: 140px;
+        }
+
+        @media screen and (max-width: $pc-wide) {
+            display: none;
+        }
+    }
+
+    pre {
+        display: inline-block;
+
+        &.g-left {
+            grid-area: left;
+            justify-self: right;
+
+            @media screen and (max-width: $pc-wide) {
+                display: none;
+            }
+        }
+        &.g-right {
+            grid-area: right;
+            justify-self: left;
+        }
+        
+        code {
+            display: inline-block;
+            min-width: 685px;
+            min-height: 374px;
+
+            padding: 10px;
+            padding-left: 30px;
+            border-radius: 10px;
+        }
+    }
+}
+
+.feature-lists {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+    @media screen and (max-width: $pc) {
+      flex-direction: column;
+    }
+  
+    .feature-cat {
+      margin: 0 18px;
+      max-width: 50%;
+  
+      @media screen and (max-width: $pc) {
+        max-width: 85%;
+        margin: 20px auto;
+      }
+
+      h2 {
+        font-weight: 500;
+      }
+    }
+  }

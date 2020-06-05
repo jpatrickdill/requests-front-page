@@ -1,0 +1,94 @@
+---
+title: "Roblox Requests"
+layout: page
+---
+
+<section class="green index-green">
+    <div>
+        <h1 class="big center desc">Simple, elegant HTTP in Roblox.</h1>
+
+        <div class="code-compare">
+            <pre class="sample g-left"><code class="language-lua">
+local HttpService = game:GetService("HttpService")
+
+local url_query = {arg1="val1", arg2="val2"}
+local options = {
+    Url = ("https://httpbin.org/post?%s=%s&%s=%s")
+          :format("arg1", url_query.arg1, "arg2", url_query.arg2),
+    Method = "POST",
+    Headers = {["Content-Type"] = "application/json"},
+    Body = HttpService:JSONEncode(
+        {a=1, b=2, this="is json"}
+    )
+}
+
+local r = HttpService:RequestAsync(options)
+
+print(r.Headers["content-type"])
+local data = HttpService:JSONEncode(r.Body)
+            </code></pre>
+            <div class="arrow g-mid">
+                <h2>&rArr;</h2>
+            </div>
+            <pre class="sample g-right"><code class="language-lua">
+local http = require(ReplicatedStorage.http)
+
+local r = http.post("https://httpbin.org/post",
+                    { query = {arg1="val1", arg2="val2"},
+                      data = {a=1, b=2, this="is json"} })
+
+print(r.headers["content-type"])
+local data = r:json()
+            </code></pre>
+        </div>
+    </div>
+</section>
+<section class="grey" style="padding-top: 120px">
+    <div class="center-content">
+        <p class="b">Nearly every modern digital experience makes use of external resources via HTTP.</p>
+        <p>
+            Roblox Requests brings user-friendly HTTP to Roblox with no need for the manual labor of HttpService.
+            You can send robust, human-readable requests, no need to manually add query-strings to your URLs, or
+            form/json encode POST data.
+        </p>
+    </div>
+</section>
+<section>
+    <div class="center-content">
+        <h1 style="margin-bottom: 0; text-align: center">Features You'll Love</h1>
+        <div class="feature-lists">
+            <div class="feature-cat">
+                <h2>Human Readable</h2>
+                <p>
+                    An important part of writing good code is readability, especially when you're on a team.
+                </p>
+                <p>
+                    With Roblox Requests, you'll never find yourself struggling to understand old code. The Requests API
+                    is simple and to-the-point.
+                </p>
+            </div>
+            <div class="feature-cat">
+                <h2>HTTP Sessions</h2>
+                <p>
+                    Roblox Requests allows you to create sessions that will retain information, similar to how your browser behaves.
+                </p>
+                <p>
+                    Sessions feature cookie persistence with elegant key-value cookies, default headers, and URL prefixes.
+                </p>
+            </div>
+            <div class="feature-cat">
+                <h2>Built for Every Purpose</h2>
+                <p>
+                    Requests is designed so that you can make use of any web resource in Roblox without limitation. 
+                </p>
+                <p>
+                    You can send any type of content you need with Requests. JSON bodies are automatically encoded for you,
+                    and you can create multipart-encoded forms with ease. Requests will even encode binary files for you.
+                </p>
+                <p>
+                    Requests also features automatic decoding of JSON, XML, and HTML response bodies.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
