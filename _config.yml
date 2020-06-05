@@ -20,7 +20,7 @@
 
 title: roblox-requests
 email: jamespatrickdill@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Roblox-Requests is a library for writing simple, organic HTTP requests
   in Roblox Lua.
 encoding: utf-8
@@ -37,9 +37,6 @@ collections:
   pages:
     output: true
     permalink: /:name
-  docs:
-    output: true
-    permalink: /docs/:categories/:name
 
 defaults:
   -
