@@ -1,12 +1,9 @@
 ---
-title: Advances
+title: Advanced
 order: 3
-description: Advanced usage of Roblox Requests.
+description: More advanced features of Roblox Requests.
+category: guide
 ---
-
-# Advanced Usage
-
-This page covers some more advanced features of Roblox Requests.
 
 ## Session Objects
 
@@ -29,6 +26,7 @@ print(session:get("https://httpbin.org/").text)  -- cookies will only be sent to
 -- {"cookies": {}}
 
 ```
+{: .language-lua}
 
 Sessions can also be used to provide default data to requests.
 
@@ -41,6 +39,7 @@ session.headers = {
 -- both "x-test" and "x-test2" are sent
 session:get("https://httpbin.org/headers", { headers={["X-Test2"] = "true"} })
 ```
+{: .language-lua}
 
 Additional headers can also be merged with the current headers:
 
@@ -50,6 +49,7 @@ session:set_headers({
 })  
 -- session.headers now contains both "X-Test" and "x-third"
 ```
+{: .language-lua}
 
 Any options that you pass to a request method will be merged with the session-level values.
 Method-level parameters override session parameters.
@@ -68,6 +68,7 @@ local r2 = session:get("https://httpbin.org/cookies")
 print(r2.text)
 -- {"cookies": {}}
 ```
+{: .language-lua}
 
 ## Request Objects
 
@@ -82,6 +83,7 @@ request:set_data("request body")
 
 local response = request:send()
 ```
+{: .language-lua}
 
 The same is possible from a session by using `Session:Request()`.
 
@@ -98,6 +100,7 @@ local http = require(ReplicatedStorage.http)
 
 http.set_ratelimit(10, 60)  -- allow 10 requests every 60 seconds
 ```
+{: .language-lua}
 
 If you'd like a request to ignore the rate-limit, just set the `ignore_ratelimit` option to `true`:
 
@@ -107,6 +110,7 @@ if custom_ratelimit_function() then
 	http.get("https://httpbin.org", { ignore_ratelimit=true })
 end
 ```
+{: .language-lua}
 
 You can also disable a session's rate-limits by setting the `ignore_ratelimit` property:
 
@@ -120,6 +124,7 @@ while wait() do
 	session:get("https://httpbin.org/get")
 end
 ```
+{: .language-lua}
 
 It's recommended that you only do this if you're applying some other limiting function.
 
@@ -143,6 +148,7 @@ while wait(1) do
 	end
 end
 ```
+{: .language-lua}
 
 Unlike the global rate-limiter, this one can be changed any time you like by calling `:set_ratelimit()`.
 It can also be removed by calling `:disable_ratelimit()`.

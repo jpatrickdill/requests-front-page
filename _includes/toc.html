@@ -1,0 +1,21 @@
+{% assign docs = site.docs | group_by: "category" %}
+
+<ul>
+{% for cat in docs %}
+    {% if cat.name != "" %}
+    {% assign items = cat.items | sort: 'order' %}
+    <li>
+        <span>{{ cat.name | capitalize }}</span>
+        <ul>
+        {% for item in items %}
+            {% if item.title == page.title %}
+                <li class="current">{{ item.title }}</li>
+            {% else %}
+                <li><a href={{ item.url }}>{{ item.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>

@@ -2,6 +2,20 @@
 layout: page-content
 ---
 
-<div>
-    {{ content }}
+<div class="docs-container">
+    <div class="toc">
+        <div class="items">
+            <h4>Roblox Requests</h4>
+            {% include toc.html sanitize=true %}
+        </div>
+    </div>
+    <div class="content">
+        {{ content }}
+    </div>
+    <div class="section-toc">
+        <div class="items">
+            <h4>Table of Contents</h4>
+            {% include section.html html=content sanitize=true %}
+        </div>
+    </div>
 </div>>

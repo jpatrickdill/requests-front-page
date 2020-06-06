@@ -2,6 +2,7 @@
 title: Installation
 order: 1
 description: How to install Roblox Requests.
+category: guide
 ---
 
 There are two methods to get started with Roblox Requests.

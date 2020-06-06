@@ -2,6 +2,7 @@
 title: Quick Start
 order: 2
 description: Getting started with Roblox Requests.
+category: guide
 ---
 
 This page gives an introduction into how to use Roblox Requests.
@@ -70,6 +71,7 @@ print(r.text)
 -- [{"id":10803524,"node_id":"MDEwOlJlcG9zaXRvcnkxMD...
 ```
 {: .lua}
+
 The `text` attribute provides the plaintext response body, regardless of the given content-type.
 If you'd like to decode JSON data, you can use the `:json()` method:
 

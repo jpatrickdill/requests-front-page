@@ -2,6 +2,7 @@
 title: Roblox Lua Promises
 order: 4
 description: Using Lua Promises with Roblox Requests.
+category: guide
 ---
 
 # Promises

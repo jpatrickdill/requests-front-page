@@ -2,9 +2,8 @@
 title: API Reference
 order: 2
 description: Complete reference for the Roblox Requests API.
+category: reference
 ---
-
-# API Reference
 
 ## Module
 
