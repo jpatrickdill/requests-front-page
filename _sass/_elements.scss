@@ -59,37 +59,43 @@ div.center-content {
     margin: 0 auto;
     padding: 0 20px;
 
-    .title {
-        white-space: nowrap;
-        .logo {
-            width: 64px;
+    &.split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .title {
+            white-space: nowrap;
+            .logo {
+                width: 64px;
+                height: 64px;
+                vertical-align: -47%;
+            }
+
+            h1 {
+                margin-top: 16px;
+            }
+
+        }
+        .links {
+            justify-self: right;
+
+            margin-top: 0;
+            padding-top: 48px;
+
+            text-align: right;
+            font-weight: 300;
+            font-size: 1.25rem;
+
             height: 64px;
-            vertical-align: -47%;
-        }
 
-        h1 {
-            margin-top: 16px;
-        }
+            a {
+                display: inline-block;
+                padding: 0 18px;
+            }
 
-        
-    }
-
-    .links {
-        margin-top: 42px;
-
-        text-align: right;
-        font-weight: 300;
-        font-size: 1.25rem;
-
-        height: 64px;
-
-        a {
-            display: inline-block;
-            padding: 0 18px;
-        }
-
-        @media screen and (max-width: $phone) {
-            display: none;
+            @media screen and (max-width: $phone) {
+                display: none;
+            }
         }
     }
 }
