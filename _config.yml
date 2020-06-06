@@ -32,11 +32,17 @@ kramdown:
   input: GFM
   auto_ids: true
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: lua
+
 
 collections:
   pages:
     output: true
     permalink: /:name
+  docs:
+    output: true
+    permalink: /docs/:categories/:name
 
 defaults:
   -

@@ -3,13 +3,30 @@ layout: base
 ---
 <header>
     <div class="center-content split">
-        <a href="/" class="title"><h1><img src="img/requests-w-512.png" alt="Roblox Requests" class="logo"> Roblox Requests</h1></a>
+        <a href="/" class="title"><h1><img src="/img/requests-w-512.png" alt="Roblox Requests" class="logo"> Roblox Requests</h1></a>
 
         <div class="links">
-            <a href="http://docs.requests.paric.xyz/" target="_blank">Docs</a>
-            <a href="https://github.com/jpatrickdill/roblox-requests" target="_blank">GitHub</a>
+            {% for link in site.data.links %}
+            <a href="{{ link.href }}" target="_blank">{{ link.name }}</a>
+            {% endfor %}
         </div>
     </div>
 </header>
 
 {{ content }}
+
+<footer>
+    <div class="center-content">
+        <div class="thirds">
+            <p>Copyright &copy; 2020 James Patrick Dill</p>
+            <div class="footer-links">
+                {% for link in site.data.links %}
+                    <a href="{{ link.href }}">{{ link.name }}</a>
+                {% endfor %}
+            </div>
+            <p>Published under the MIT License.</p>
+        </div>
+
+        <img src="/img/name-logo.png" alt="Roblox Requests" height="64px">
+    </div>
+</footer>
