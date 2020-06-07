@@ -24,9 +24,11 @@
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@14/dist/smooth-scroll.polyfills.min.js"></script>
 
-        <link rel="stylesheet" href="/css/github.css">
+        <link rel="stylesheet" href="/css/syntax.css">
+        {% unless page.path contains "_docs" %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
+        {% endunless %}
         
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167278179-1"></script>

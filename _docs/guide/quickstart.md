@@ -174,14 +174,14 @@ local payload = {key1 = "value1", list={"a", "b", "c"}}
 local r = http.post("https://httpbin.org/post", { data=payload })
 print(r.text)
 -- {
--- 	...
--- 	"json": {
--- 		"key1": "value1", 
--- 		"list": [
--- 			"a", 
--- 			"b", 
---			"c"
---		]
+--     ...
+--     "json": {
+--         "key1": "value1", 
+--         "list": [
+--             "a", 
+--             "b", 
+--            "c"
+--        ]
 --  }, 
 --  ...
 -- }
@@ -217,14 +217,14 @@ local form = http.FormData({"key", "value"}, {"key2", "value2"})
 local r = http.post("https://httpbin.org/post", { data=form })
 
 print(r.text)
---	{
+--    {
 --    ...
---	  "form": {
---	    "key": "value", 
---	    "key2": ["value2", "value3"]
---	  }, 
---	  ...
---	}
+--      "form": {
+--        "key": "value", 
+--        "key2": ["value2", "value3"]
+--      }, 
+--      ...
+--    }
 ```
 {: .lua}
 ### File Uploads

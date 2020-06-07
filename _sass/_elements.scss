@@ -321,7 +321,7 @@ div.docs-container {
         justify-self: center;
 
         div.highlighter-rouge {
-            max-width: 50vw;
+            max-width: 45vw;
             overflow: auto;
         }
     }
@@ -363,4 +363,24 @@ div.docs-container {
             color: $green;
         }
     }
+}
+
+.success, .warning, .danger, .info {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+
+    code {
+        font-size: 1em;
+    }
+}
+
+.warning {
+    background: $warning;
+    border: 2px solid darken($warning, 10%);
+}
+
+li {
+    font-size: 1rem;
+    line-height: 1.4;
 }
