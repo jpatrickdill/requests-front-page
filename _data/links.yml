@@ -1,5 +1,7 @@
 - name: Docs
   href: /docs
+  blank: false
 
 - name: GitHub
   href: https://github.com/jpatrickdill/roblox-requests
+  blank: true
