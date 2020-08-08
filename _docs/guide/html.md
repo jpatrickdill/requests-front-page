@@ -1,6 +1,6 @@
 ---
 title: HTML/XML Parsing
-order: 4
+order: 5
 description: Parsing and navigating HTML and XML documents with Roblox Requests.
 category: guide
 ---

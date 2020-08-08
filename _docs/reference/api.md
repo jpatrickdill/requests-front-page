@@ -7,9 +7,9 @@ category: reference
 
 ## Module
 
-### http.send
+### http.request
 
-`http.send(method, url, [options]) -> Response`
+`http.request(method, url, [options]) -> Response`
 
 Creates and sends an HTTP request with the given method, URL, and options.
 
@@ -27,19 +27,19 @@ Options:
 
 `http.get(url, [options]) -> Response`
 
-Shortcut methods for `http.send`.
+Shortcut methods for `http.request`.
 
-### http.promise_send
+### http.promise_request
 
-`http.promise_send(method, url, [opts]) -> Promise`
+`http.promise_request(method, url, [opts]) -> Promise`
 
-This has the same functionality as `http.send` but returns a Promise.
+This has the same functionality as `http.request` but returns a Promise.
 
 ### http.promise_get, promise_post, promise_...
 
 `http.promise_get(url, [opts]) -> Promise`
 
-Shortcut methods for `http.promise_send`
+Shortcut methods for `http.promise_request`
 
 ### http.set_ratelimit
 
@@ -63,15 +63,15 @@ Note: These attributes are all read-only. Use the provided methods instead of se
 - **query** (dictionary) - Parameters to add to URL
 - **data** (string) - Raw data sent with request
 
-### Request:update_headers
+### Request:set_headers
 
-`Request:update_headers(headers)`
+`Request:set_headers(headers)`
 
 Updates request headers based on a dictionary of new headers.
 
-### Request:update_query
+### Request:set_query
 
-`Request:update_query(params)`
+`Request:set_query(params)`
 
 Updates URL query string based on a dictionary of parameters.
 
@@ -113,6 +113,7 @@ The Promise will resolve with the response object if the response has a 2xx stat
 - **message** (string) - Status message of response
 - **response_time** (number) - Time the request took in seconds
 - **timestamp** (number) - Epoch time the request was sent at
+- **from_cache** (bool) - Whether the response was accessed from the cache
 - **headers** (dictionary) - Headers sent in response
 - **text** (string) - Response body
 - **cookies** (CookieJar) - New cookies sent in this response
@@ -154,9 +155,9 @@ If no values are provided, this will disable the session ratelimit. This will no
 
 This can be changed at any time by calling the function again.
 
-### Session:send
+### session:request
 
-`Session:send(method, url, [opts]) -> Response`
+`session:request(method, url, [opts]) -> Response`
 
 Creates and sends a request prepared with session defaults.
 Options specified here will override the session values.
@@ -165,19 +166,19 @@ Options specified here will override the session values.
 
 `Session:get(url, [opts]) -> Response`
 
-Shortcut methods for `Session:send`
+Shortcut methods for `session:request`
 
-### Session:promise_send
+### Session:promise_request
 
-`Session:promise_send(method, url, [opts]) -> Promise`
+`Session:promise_request(method, url, [opts]) -> Promise`
 
-This has the same functionality as `Session:send` but returns a Promise.
+This has the same functionality as `session:request` but returns a Promise.
 
 ### Session:promise_get, promise_post, promise_...
 
 `Session:promise_get(url, [opts]) -> Promise`
 
-Shortcut methods for `Session:promise_send`
+Shortcut methods for `Session:promise_request`
 
 ### Session:Request
 
@@ -185,6 +186,42 @@ Shortcut methods for `Session:promise_send`
 
 Creates a Request prepared with session defaults.
 Options specified here will override the session values.
+
+## http.cache
+
+### http.cache.update_settings
+
+`http.cache.update_settings(url, opts)`
+
+`http.cache.update_settings(urls, opts)`
+
+Updates cache settings for one or more URL patterns.
+
+Example patterns:
+- `"github.com"` - Matches all subdirectories for GitHub
+- `"*.github.com"` - Matches all subdomains and subdirectories for GitHub
+- `"github.com/"` - Matches ONLY "http(s)://github.com/"
+- `"github.com/*/stars"` - Matches stars directory for any GitHub user
+
+Options:
+
+| Name             | Type                        | Description                                                                            |
+|------------------|-----------------------------|----------------------------------------------------------------------------------------|
+| cache_locally    | Optional[bool]              | Whether to cache locally (on this server). Defaults to `true`                          |
+| cache_globally   | Optional[bool]              | Whether to use datastores to cache across servers. Defaults to `false`                 |
+| expires          | Optional[number]            | Max age in seconds of a cached response.                                               |
+
+### http.cache.cache_locally
+
+` http.cache.cache_locally(urls, opts)`
+
+Same as update_settings but automatically sets `cache_locally` to `true`.
+
+### http.cache.cache_globally
+
+` http.cache.cache_globally(urls, opts)`
+
+Same as update_settings but automatically sets `cache_globally` to `true`.
 
 ## http.FormData
 
