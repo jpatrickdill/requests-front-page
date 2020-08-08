@@ -11,7 +11,7 @@ For our examples, Requests will be installed into `ReplicatedStorage` under the 
 
 ## Method 1: Model File
 
-- Download the `rbxmx` model file from the repository
+- Download the `rbxmx` model file from the [Releases page](https://github.com/jpatrickdill/roblox-requests/releases)
 - Insert the model into Studio in a place like `ReplicatedStorage`
 
 ## Method 2: Filesystem
