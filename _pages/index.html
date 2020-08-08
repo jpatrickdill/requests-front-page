@@ -46,7 +46,7 @@ local options = {
 local r = HttpService:RequestAsync(options)
 
 print(r.Headers["content-type"])
-local data = HttpService:JSONEncode(r.Body)
+local data = HttpService:JSONDecode(r.Body)
             </code></pre>
             <div class="arrow g-mid">
                 <h2>&rArr;</h2>
