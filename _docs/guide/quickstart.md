@@ -213,7 +213,7 @@ form:AddField("toppings", {"cheese", "pepperoni"})
 To use a form in a POST request, just set it as the `data` option:
 
 ```lua
-local form = http.FormData({"key", "value"}, {"key2", "value2"})
+local form = http.FormData({key="value", key2="value2"})
 local r = http.post("https://httpbin.org/post", { data=form })
 
 print(r.text)
@@ -221,7 +221,7 @@ print(r.text)
 --    ...
 --      "form": {
 --        "key": "value", 
---        "key2": ["value2", "value3"]
+--        "key2": "value2"
 --      }, 
 --      ...
 --    }
